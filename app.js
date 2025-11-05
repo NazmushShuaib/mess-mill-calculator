@@ -203,7 +203,7 @@ document.getElementById("downloadInvoice").onclick = () => {
   html2pdf().set({
     margin: 10,
     filename: 'Mess_Invoice_Nov_2025.pdf',
-    image: { type: 'png', quality: 1.0 },
+    image: { type: 'png', quality: .98 },
     html2canvas: { scale: 2 },
     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   }).from(invoice).save().then(() => {
