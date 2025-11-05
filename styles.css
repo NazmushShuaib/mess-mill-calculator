@@ -89,14 +89,14 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-/* #downloadInvoice{
+#downloadInvoice{
    border: none;
    border-radius: 10px;
           background-image: linear-gradient(to right, #3CA55C 0%, #B5AC49  51%, #3CA55C  100%)
 
         
         
-        } */
+        }
        
          
 
