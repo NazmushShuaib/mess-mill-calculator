@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>মেস মিল হিসাব</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>মেস মিল হিসাব</h1>
+        <p>নাম, মিল সংখ্যা, বাজার খরচ দিয়ে হিসাব করো। এক ক্লিকে মিল রেট ও প্লাস/মাইনাস দেখাবে।</p>
+    </header>
+
+    <div class="container">
+        <div class="panel">
+            <div class="actions">
+                <button class="btn btn-primary" id="addMemberBtn">সদস্য যোগ</button>
+                <button class="btn" id="saveBtn">সেভ</button>
+                <button class="btn" id="loadBtn">লোড</button>
+                <button class="btn btn-danger" id="resetBtn">রিসেট</button>
+                <button class="btn btn-success" id="calculateBtn">ক্যালকুলেট</button>
+                <button id="gi">Download PDF Invoice</button>
+            </div>
+            <div id="invoice"
+                style="display:none; font-family: 'SolaimanLipi', sans-serif; padding: 20px; color: #111;">
+                <h1 style="text-align:center; margin-bottom: 10px;">মেস মিল ইনভয়েস</h1>
+                <h3 style="text-align:center; margin-top:0;">নভেম্বর ২০২৫</h3>
+
+                <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
+                    <thead>
+                        <tr style="background:#f0f0f0;">
+                            <th style="border:1px solid #ccc; padding:8px;">নাম</th>
+                            <th style="border:1px solid #ccc; padding:8px;">মিল</th>
+                            <th style="border:1px solid #ccc; padding:8px;">বাজার (৳)</th>
+                            <th style="border:1px solid #ccc; padding:8px;">খাওয়ার খরচ (৳)</th>
+                            <th style="border:1px solid #ccc; padding:8px;">প্লাস/মাইনাস (৳)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceBody"></tbody>
+                </table>
+
+                <div style="margin-top: 20px; border-top: 1px dashed #aaa; padding-top: 10px;">
+                    <p><strong>মোট মিল:</strong> <span id="invTotalMeals"></span></p>
+                    <p><strong>মোট বাজার:</strong> <span id="invTotalBazar"></span></p>
+                    <p><strong>প্রতি মিলের দাম:</strong> <span id="invMealRate"></span></p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <p><strong>প্রস্তুতকারী:</strong> N. Shuaib </p>
+                    <p><strong>তারিখ:</strong> <span id="invDate"></span></p>
+                    <p style="margin-top:40px;"><strong>Signature:     </strong><img src="images/Signature.png" alt=""></p>
+                </div>
+            </div>
+            <div id="members"></div>
+
+            <div class="summary" id="summary" style="display:none">
+                <div class="card">
+                    <h3>মোট মিল</h3>
+                    <p id="totalMeals">0</p>
+                </div>
+                <div class="card">
+                    <h3>মোট বাজার</h3>
+                    <p id="totalBazar">0</p>
+                </div>
+                <div class="card">
+                    <h3>প্রতি মিলের দাম</h3>
+                    <p id="mealRate">0</p>
+                </div>
+                <div class="card">
+                    <h3>ব্যালেন্স মিল</h3>
+                    <p id="balanceCheck">OK</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel" id="resultsPanel" style="display:none">
+            <h2 class="panel-title">সদস্যভিত্তিক ফলাফল</h2>
+            <table id="resultTable">
+                <thead>
+                    <tr>
+                        <th class="name">নাম</th>
+                        <th>মিল</th>
+                        <th>বাজার (৳)</th>
+                        <th>খাওয়ার খরচ (৳)</th>
+                        <th>প্লাস/মাইনাস (৳)</th>
+                        <th>স্ট্যাটাস</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <p class="note">
+                নোট: প্লাস মানে দিতে হবে, মাইনাস মানে নিতে হবে। সবার প্লাসের যোগফল ≈ সবার মাইনাসের যোগফল।
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <small>Created by N. Shuaib</small>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+
+</html>
